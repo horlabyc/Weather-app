@@ -1,0 +1,91 @@
+<div class="weather-info">
+  <div *ngIf="!(loadingData | async) else loading">
+    <div class="" *ngIf="!(errorMessage | async) else error">
+      <div class="flex weather-info__header">
+        <span>Current weather</span>
+        <span class="low-scale">{{ currentTime }}</span>
+      </div>
+      <div class="weather-info__city">
+        <span class="highlight">{{ weatherData.name }}, {{ weatherData.sys?.country}}</span>
+      </div>
+      <div class="weather-info__value1">
+        <div class="container flex justify-between">
+          <div class=""style="flex:1">
+            <div class="flex">
+              <img [src]="weatherIcon" alt="" width="80">
+              <span style="font-size: 3rem;">{{ weatherData.main?.temp }}°C</span>
+            </div>
+            <div class="">
+              <p style="font-weight: bold;">{{ main }}</p>
+              <p class="low-scale" style="text-transform: capitalize">{{ description }}</p>
+            </div>
+          </div>
+          <div class="flex more-info" style="flex:1;">
+            <div class="flex flex-col">
+              <span>RealFeel®</span>
+              <span style="font-size: 1rem;color: #878787;">{{ weatherData.main?.feels_like }}°C</span>
+            </div>
+            <div class="flex sun-value">
+              <div class="flex flex-col">
+                <span>Sunrise</span>
+                <span style="font-size: 0.95rem;color: #878787;">{{ sunriseTime }}</span>
+              </div>
+              <div class="flex flex-col">
+                <span>Sunset</span>
+                <span style="font-size: 0.95rem;color: #878787;">{{sunsetTime}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="weather-info__value2">
+        <div class="container flex justify-between" style="gap: 1.5rem;">
+          <div class=""style="flex:1">
+            <ul>
+              <li class="flex justify-between">
+                <span>Max. Temperature</span>
+                <span class="low-scale">{{ weatherData.main?.temp_max}}°C</span>
+              </li>
+              <li class="flex justify-between">
+                <span>Wind speed</span>
+                <span class="low-scale">{{ weatherData.wind?.speed}}m/s</span>
+              </li>
+              <li class="flex justify-between">
+                <span>Wind Gusts</span>
+                <span class="low-scale">{{ weatherData.wind?.gust }}m/s</span>
+              </li>
+              <li class="flex justify-between">
+                <span>Pressure</span>
+                <span class="low-scale">{{ weatherData.main?.pressure}}hPa</span>
+              </li>
+            </ul>
+          </div>
+          <div class=""style="flex:1">
+            <ul>
+              <li class="flex justify-between">
+                <span>Min. Temperature</span>
+                <span class="low-scale">{{ weatherData.main?.temp_min}}°C</span>
+              </li>
+              <li class="flex justify-between">
+                <span>Humidity</span>
+                <span class="low-scale">{{ weatherData.main?.humidity}}%</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="flex justify-center">
+    <div class="lds-dual-ring"></div>
+  </div>
+</ng-template>
+
+<ng-template #error>
+  <div class="flex justify-center">
+    <p>{{ errorMessage | async }}</p>
+  </div>
+</ng-template>

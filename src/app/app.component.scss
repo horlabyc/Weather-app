@@ -1,20 +1,69 @@
+header {
+  height: 62px;
+  .header {
+    position: fixed;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+  }
+}
 .app {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: relative;
   background-color: rgba(0,0,0,0.4);
   color: #fff;
+
+  input {
+    padding: .7rem 2.5rem;
+    font-size: 1.2rem;
+    border-radius: 7px;
+    border: 1px solid rgba(255,255,255, 0.8);
+    background: white;
+    color: #000;
+    width: 100%;
+  }
   .search {
     text-align: center;
     padding: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+    .search-icon {
+      left: 25px;
+      top: 28px;
+      height: 20px;
+      width: 20px;
+    }
+    .close-icon {
+      cursor: pointer;
+      top: 28px;
+      right: 28px;
+      height: 20px;
+      width: 20px;
+    }
   }
-  input {
-    padding: .7rem 1.5rem;
-    font-size: 1.2rem;
-    border-radius: 25px;
-    border: 1px solid rgba(255,255,255, 0.8);
-    background: rgba(255,255,255, 0.1);
-    color: #f8f8f8;
+  .top {
+    width: 100%;
+    margin: 1rem auto;
+  }
+  .description {
+    position: relative;
+    right: -90%;
+    transform-origin: 0 0;
+    transform: rotate(269deg);
+  }
+  .bottom {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    width: 100%;
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 12px;
+    background-color: rgba(255,255,255, 0.2);
   }
 }
 
@@ -30,7 +79,8 @@
 }
 
 ::placeholder {
-  color: #f8f8f8;
+  color: gray;
+  font-family: 'Jost', sans-serif;
 }
 
 .container {
@@ -43,29 +93,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-.app .top {
-  width: 100%;
-  margin: 1rem auto;
-}
-
-.app .description {
-  position: relative;
-  right: -90%;
-  transform-origin: 0 0;
-  transform: rotate(269deg);
-}
-
-.app .bottom {
-  display: flex;
-  justify-content: space-evenly;
-  text-align: center;
-  width: 100%;
-  margin: 1rem auto;
-  padding: 1rem;
-  border-radius: 12px;
-  background-color: rgba(255,255,255, 0.2);
 }
 
 .bold {
